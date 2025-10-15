@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <div class="hero-section">
+            <h1 class="display-4 fw-bold text-primary mb-4">
+                <i class="fas fa-user-circle"></i> Hệ Thống Quản Lý Người Dùng
+            </h1>
+            <p class="lead mb-4">Đăng ký, đăng nhập và quản lý thông tin cá nhân</p>
+            
+            {% if not session.username %}
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg px-4 gap-3">
+                    <i class="fas fa-user-plus"></i> Đăng ký ngay
+                </a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-lg px-4">
+                    <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                </a>
+            </div>
+            {% else %}
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{{ url_for('profile') }}" class="btn btn-success btn-lg px-4 gap-3">
+                    <i class="fas fa-user"></i> Xem Profile
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Đăng ký dễ dàng</h5>
+                        <p class="card-text">Tạo tài khoản nhanh chóng và đơn giản</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-camera fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Avatar cá nhân</h5>
+                        <p class="card-text">Tùy chỉnh avatar theo ý thích</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Bảo mật</h5>
+                        <p class="card-text">Hệ thống bảo mật an toàn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
